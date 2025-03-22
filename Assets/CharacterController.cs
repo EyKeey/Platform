@@ -43,6 +43,7 @@ public class CharacterController : MonoBehaviour
 
         HandleMovement();
         HandleRotation();
+        HandleAnimation();
     }
 
     private void HandleMovement()
@@ -57,8 +58,6 @@ public class CharacterController : MonoBehaviour
         float rotation = horizontalInput >= 0 ? 0 : 180;
         transform.localRotation = Quaternion.Euler(0, rotation, 0);
 
-        animator.SetInteger("horizontalInput", Mathf.Abs(horizontalInput));
-
         if (verticalInput > 0 && isGrounded)
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
@@ -67,6 +66,11 @@ public class CharacterController : MonoBehaviour
         {
             return;
         }
+    }
+    public void HandleAnimation()
+    {
+        animator.SetInteger("horizontalInput", Mathf.Abs(InputManager.instance.horizontalInput));
+        animator.SetBool("isGrounded", isGrounded);
     }
 
     private void HandleRotation()
@@ -83,6 +87,7 @@ public class CharacterController : MonoBehaviour
     private void CheckGround()
     {
         isGrounded = Physics2D.Raycast(transform.position, Vector2.down, 1.5f, groundLayer);
+        
     }
 
     private void OnDrawGizmos()
