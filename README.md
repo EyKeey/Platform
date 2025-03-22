@@ -1,2 +1,2 @@
 # Platform
-2D platform game.
+2d mobile platformer.
