@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 2839683261
+    locked: 0
+  - name: Mountains
+    uniqueID: 1499132573
+    locked: 0
+  - name: New Layer 3
+    uniqueID: 2391585311
+    locked: 0
